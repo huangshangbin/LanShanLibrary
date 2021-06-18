@@ -1,0 +1,8 @@
+相对上一版改动日志:
+     1  ByteStreamFile buffer 支持 unsigned char类型，用来支持转换成其他类型换回之后值不变。
+     2  Service 添加 getDisplayName，构造函数添加对系统服务的获取。
+     3  FileUtils 添加  isExistFile， isExistDir
+     4  ByteStreamFile 处理文件长度为0的问题。
+     5  TypeConvertUtils debug  getString(double doubleValue, int saveDigit = 4)
+     6  httplib 里面的 ThreadPool 改名为 HttplibThreadPool,避免类名冲突。
+     7  添加创建进程函数。
