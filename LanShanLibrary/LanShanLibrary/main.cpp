@@ -1,10 +1,9 @@
-#include<iostream>
-
-using namespace std;
+#include<lanShan/system/Console.hpp>
 
 int main()
 {
-	int a;
-	cin >> a;
+	Console::out("name", " huang, age ", 18);
+	Console::readString();
+
 	return 0;
 }
