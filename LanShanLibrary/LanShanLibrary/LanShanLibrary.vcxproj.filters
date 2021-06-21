@@ -26,5 +26,17 @@
     <ClInclude Include="lanShan\system\Console.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="lanShan\fileDeal\TextFile.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lanShan\utils\DequeUtils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lanShan\utils\StringUtils.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lanShan\fileDeal\ByteStreamFile.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
