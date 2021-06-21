@@ -36,7 +36,7 @@ public:
 		m_dataList.push_back(str);
 	}
 
-	void set(int row, std::string data)
+	void set(size_t row, std::string data)
 	{
 		if (row >= m_dataList.size() || row < 0)
 		{
@@ -46,7 +46,7 @@ public:
 		m_dataList[row] = data;
 	}
 
-	std::string get(int row)
+	std::string get(size_t row)
 	{
 		if (row >= m_dataList.size() || row < 0)
 		{
@@ -56,7 +56,7 @@ public:
 		return m_dataList[row];
 	}
 
-	void erase(int row)
+	void erase(size_t row)
 	{
 		if (row < 0 || row >= m_dataList.size())
 		{
@@ -64,7 +64,7 @@ public:
 		}
 
 		auto eraseIt = m_dataList.begin();
-		for (int i = 0; i < row; i++)
+		for (size_t i = 0; i < row; i++)
 		{
 			eraseIt++;
 		}
@@ -84,7 +84,7 @@ public:
 		if (m_dataList.size() > 0)
 		{
 			data = m_dataList[0];
-			for (int i = 1; i < m_dataList.size(); i++)
+			for (size_t i = 1; i < m_dataList.size(); i++)
 			{
 				data = data + "\r\n" + m_dataList[i];
 			}

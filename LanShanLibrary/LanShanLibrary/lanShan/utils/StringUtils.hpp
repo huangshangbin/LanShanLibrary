@@ -38,7 +38,7 @@ public:
 		return std::move(dataList);
 	}
 
-	static std::string splitStringGetOneStr(std::string srcStr, std::string splitStr, int index)
+	static std::string splitStringGetOneStr(std::string srcStr, std::string splitStr, size_t index)
 	{
 		std::deque<std::string> strList = splitString(srcStr, splitStr);
 		if (index >= strList.size() || index < 0)
@@ -90,7 +90,7 @@ public:
 	static bool isIncludeChinese(std::string str)
 	{
 		char c;
-		for (int i = 0; i < str.length(); i++)
+		for (size_t i = 0; i < str.length(); i++)
 		{
 			c = str[i];
 			if (c == 0) break;
@@ -115,7 +115,7 @@ public:
 	static std::string getStringUseCharStart(std::string src, char startChar)
 	{
 		int index = -1;
-		for (int i = 0; i < src.length(); i++)
+		for (size_t i = 0; i < src.length(); i++)
 		{
 			if (src[i] == startChar)
 			{
@@ -134,7 +134,7 @@ public:
 	static std::string getStringUseCharEnd(std::string src, char endChar)
 	{
 		int index = -1;
-		for (int i = 0; i < src.length(); i++)
+		for (size_t i = 0; i < src.length(); i++)
 		{
 			if (src[i] == endChar)
 			{
@@ -158,7 +158,7 @@ public:
 	static std::string getStringDeleteStartNone(std::string srcStr)
 	{
 		int index;
-		for (int i = 0; i < srcStr.length(); i++)
+		for (size_t i = 0; i < srcStr.length(); i++)
 		{
 			if (srcStr[i] != ' ')
 			{
@@ -214,7 +214,7 @@ public:
 	{
 		char* newCharArray = new char[srcStr.length()];
 		int newCharArrayIndex = 0;
-		for (int i = 0; i < srcStr.length(); i++)
+		for (size_t i = 0; i < srcStr.length(); i++)
 		{
 			if (srcStr[i] != ch)
 			{

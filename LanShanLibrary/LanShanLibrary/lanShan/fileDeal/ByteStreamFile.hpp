@@ -16,28 +16,7 @@ private:
 
 
 public:
-	ByteStreamFile(std::string filePath)
-	{
-		std::ifstream inFileStream(filePath, std::ios::binary);
-
-		inFileStream.seekg(0, std::ios::end);
-		m_length = inFileStream.tellg();
-
-		if (m_length > 0)
-		{
-			inFileStream.seekg(0, std::ios::beg);
-			m_buffer = new unsigned char[m_length];
-			memset(m_buffer, 0, m_length);
-
-			inFileStream.read((char*)m_buffer, m_length);
-		}
-		else
-		{
-			m_buffer = nullptr;
-		}
-
-		inFileStream.close();
-	}
+	ByteStreamFile(std::string filePath);
 
 	~ByteStreamFile()
 	{
@@ -77,9 +56,9 @@ public:
 		writeFile(filePath, (char*)buffer, bufferLength);
 	}
 
-private:
-	ByteStreamFile(const ByteStreamFile& byteStreamFile) {}
-	void operator = (const ByteStreamFile& byteStreamFile) {}
+//----
+	ByteStreamFile(const ByteStreamFile& byteStreamFile) = delete;
+	void operator = (const ByteStreamFile& byteStreamFile) = delete;
 };
 
 #endif
