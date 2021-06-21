@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __OFTextFile_h_
+#define __OFTextFile_h_
 
 #include <lanShan/utils/DequeUtils.hpp>
 #include <lanShan/utils/StringUtils.hpp>
@@ -138,3 +139,4 @@ public:
 	}
 };
 
+#endif 

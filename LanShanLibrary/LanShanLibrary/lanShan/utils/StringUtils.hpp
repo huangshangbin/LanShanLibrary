@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __OFStringUtils_h_
+#define __OFStringUtils_h_
 
 #include <deque>
 #include <string>
@@ -278,3 +279,4 @@ public:
 	}
 };
 
+#endif

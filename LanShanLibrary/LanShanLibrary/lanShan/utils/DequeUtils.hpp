@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __OFDequeUtils_h_
+#define __OFDequeUtils_h_
 
 #include <deque>
 #include <iostream>
@@ -33,3 +34,4 @@ public:
 	}
 };
 
+#endif

@@ -1,4 +1,7 @@
-#pragma once
+#ifndef __OFByteStreamFile_h_
+#define __OFByteStreamFile_h_
+
+
 #include <string>
 #include <fstream>
 
@@ -78,3 +81,5 @@ private:
 	ByteStreamFile(const ByteStreamFile& byteStreamFile) {}
 	void operator = (const ByteStreamFile& byteStreamFile) {}
 };
+
+#endif

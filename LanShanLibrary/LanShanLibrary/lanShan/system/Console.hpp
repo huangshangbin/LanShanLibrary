@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __OFConsole_h_
+#define __OFConsole_h_
 
 
 
@@ -59,3 +60,4 @@ public:
 	}
 };
 
+#endif
