@@ -3,7 +3,7 @@
 #include <fstream>
 
 #include <iostream>
-using namespace std;
+
 
 class ByteStreamFile
 {
@@ -13,9 +13,9 @@ private:
 
 
 public:
-	ByteStreamFile(string filePath)
+	ByteStreamFile(std::string filePath)
 	{
-		ifstream inFileStream(filePath, std::ios::binary);
+		std::ifstream inFileStream(filePath, std::ios::binary);
 
 		inFileStream.seekg(0, std::ios::end);
 		m_length = inFileStream.tellg();
@@ -56,20 +56,20 @@ public:
 	}
 
 public:
-	static void writeFile(string filePath, const char* buffer, long bufferLength)
+	static void writeFile(std::string filePath, const char* buffer, long bufferLength)
 	{
 		if (buffer == nullptr)
 		{
 			return;
 		}
 
-		ofstream outFileStream(filePath, std::ios::binary);
+		std::ofstream outFileStream(filePath, std::ios::binary);
 		outFileStream.write(buffer, bufferLength);
 
 		outFileStream.close();
 	}
 
-	static void writeFile(string filePath, const unsigned char* buffer, long bufferLength)
+	static void writeFile(std::string filePath, const unsigned char* buffer, long bufferLength)
 	{
 		writeFile(filePath, (char*)buffer, bufferLength);
 	}

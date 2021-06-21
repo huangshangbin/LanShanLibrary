@@ -3,13 +3,13 @@
 #include <deque>
 #include <iostream>
 
-using namespace std;
+
 
 class DequeUtils
 {
 public:
 	template<class T>
-	static void copy(deque<T>& targetDeque, deque<T>& srcDeque)
+	static void copy(std::deque<T>& targetDeque, std::deque<T>& srcDeque)
 	{
 		targetDeque.clear();
 		for (T& data : srcDeque)
@@ -19,7 +19,7 @@ public:
 	}
 
 	template<class T>
-	static bool isExistData(deque<T>& dataList, T data)
+	static bool isExistData(std::deque<T>& dataList, T data)
 	{
 		for (T& itemData : dataList)
 		{

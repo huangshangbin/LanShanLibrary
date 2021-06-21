@@ -6,26 +6,26 @@
 #include <windows.h>
 
 #include <iostream>
-using namespace std;
+
 
 
 class StringUtils
 {
 public:
-	static deque<string> splitString(string srcStr, string splitStr)
+	static std::deque<std::string> splitString(std::string srcStr, std::string splitStr)
 	{
-		deque<string> dataList;
+		std::deque<std::string> dataList;
 		if (srcStr.length() == 0)
 		{
 			return std::move(dataList);
 		}
 
-		string str = srcStr;
+		std::string str = srcStr;
 
-		string::size_type pos1, pos2;
+		std::string::size_type pos1, pos2;
 		pos2 = str.find(splitStr);
 		pos1 = 0;
-		while (string::npos != pos2)
+		while (std::string::npos != pos2)
 		{
 			dataList.push_back(str.substr(pos1, pos2 - pos1));
 
@@ -37,9 +37,9 @@ public:
 		return std::move(dataList);
 	}
 
-	static string splitStringGetOneStr(string srcStr, string splitStr, int index)
+	static std::string splitStringGetOneStr(std::string srcStr, std::string splitStr, int index)
 	{
-		deque<string> strList = splitString(srcStr, splitStr);
+		std::deque<std::string> strList = splitString(srcStr, splitStr);
 		if (index >= strList.size() || index < 0)
 		{
 			return "";
@@ -48,11 +48,11 @@ public:
 		return strList[index];
 	}
 
-	static string replaceString(string srcStr, string replaceStr, string targetStr)
+	static std::string replaceString(std::string srcStr, std::string replaceStr, std::string targetStr)
 	{
-		for (string::size_type pos(0); pos != string::npos; pos += targetStr.length())
+		for (std::string::size_type pos(0); pos != std::string::npos; pos += targetStr.length())
 		{
-			if ((pos = srcStr.find(replaceStr, pos)) != string::npos)
+			if ((pos = srcStr.find(replaceStr, pos)) != std::string::npos)
 			{
 				srcStr.replace(pos, replaceStr.length(), targetStr);
 			}
@@ -61,9 +61,9 @@ public:
 		return   srcStr;
 	}
 
-	static bool isExistStringInString(string srcStr, string existStr)
+	static bool isExistStringInString(std::string srcStr, std::string existStr)
 	{
-		deque<string> srcStrList = splitString(srcStr, existStr);
+		std::deque<std::string> srcStrList = splitString(srcStr, existStr);
 		if (srcStrList.size() < 2)
 		{
 			return false;
@@ -74,7 +74,7 @@ public:
 		}
 	}
 
-	static bool isEqualString(string srcStr1, string srcStr2)
+	static bool isEqualString(std::string srcStr1, std::string srcStr2)
 	{
 		if (srcStr1 == srcStr2)
 		{
@@ -86,7 +86,7 @@ public:
 		}
 	}
 
-	static bool isIncludeChinese(string str)
+	static bool isIncludeChinese(std::string str)
 	{
 		char c;
 		for (int i = 0; i < str.length(); i++)
@@ -99,19 +99,19 @@ public:
 		return false;
 	}
 
-	static bool isUseStringEnd(string srcStr, string endStr)
+	static bool isUseStringEnd(std::string srcStr, std::string endStr)
 	{
-		string compareCS = getStringUsePos(srcStr, srcStr.length() - endStr.length(), srcStr.length());
+		std::string compareCS = getStringUsePos(srcStr, srcStr.length() - endStr.length(), srcStr.length());
 
 		return StringUtils::isEqualString(compareCS, endStr);
 	}
 
-	static string getStringUsePos(string src, int startPos, int endPos)
+	static std::string getStringUsePos(std::string src, int startPos, int endPos)
 	{
 		return src.substr(startPos, endPos - startPos + 1);
 	}
 
-	static string getStringUseCharStart(string src, char startChar)
+	static std::string getStringUseCharStart(std::string src, char startChar)
 	{
 		int index = -1;
 		for (int i = 0; i < src.length(); i++)
@@ -130,7 +130,7 @@ public:
 		return getStringUsePos(src, index + 1, src.length());
 	}
 
-	static string getStringUseCharEnd(string src, char endChar)
+	static std::string getStringUseCharEnd(std::string src, char endChar)
 	{
 		int index = -1;
 		for (int i = 0; i < src.length(); i++)
@@ -149,12 +149,12 @@ public:
 		return getStringUsePos(src, 0, index - 1);
 	}
 
-	static string getStringUseStringEnd(string src, string endStr)
+	static std::string getStringUseStringEnd(std::string src, std::string endStr)
 	{
 		return splitStringGetOneStr(src, endStr, 0);
 	}
 
-	static string getStringDeleteStartNone(string srcStr)
+	static std::string getStringDeleteStartNone(std::string srcStr)
 	{
 		int index;
 		for (int i = 0; i < srcStr.length(); i++)
@@ -169,7 +169,7 @@ public:
 		return getStringUsePos(srcStr, index, srcStr.length());
 	}
 
-	static string getStringDeleteEndNone(string srcStr)
+	static std::string getStringDeleteEndNone(std::string srcStr)
 	{
 		int index;
 		for (int i = srcStr.size() - 1; i > 0; i--)
@@ -184,32 +184,32 @@ public:
 		return getStringUsePos(srcStr, 0, index);
 	}
 
-	static string getLowerCaseString(string srcStr)
+	static std::string getLowerCaseString(std::string srcStr)
 	{
-		string resultStr;
+		std::string resultStr;
 		resultStr.resize(srcStr.size());
 		transform(srcStr.begin(), srcStr.end(), resultStr.begin(), ::tolower);
 
 		return resultStr;
 	}
 
-	static string getUpperString(string srcStr)
+	static std::string getUpperString(std::string srcStr)
 	{
-		string resultStr;
+		std::string resultStr;
 		resultStr.resize(srcStr.size());
 		transform(srcStr.begin(), srcStr.end(), resultStr.begin(), ::toupper);
 
 		return resultStr;
 	}
 
-	static void addChar(string& srcStr, char ch)
+	static void addChar(std::string& srcStr, char ch)
 	{
-		string tempStr(1, ch);
+		std::string tempStr(1, ch);
 
 		srcStr = srcStr + tempStr;
 	}
 
-	static string deleteChar(string srcStr, char ch)
+	static std::string deleteChar(std::string srcStr, char ch)
 	{
 		char* newCharArray = new char[srcStr.length()];
 		int newCharArrayIndex = 0;
@@ -224,16 +224,16 @@ public:
 
 		newCharArray[newCharArrayIndex] = '\0';
 
-		string result = newCharArray;
+		std::string result = newCharArray;
 
 		delete newCharArray;
 
 		return result;
 	}
 
-	static string getUtf8UseGbk(string content)
+	static std::string getUtf8UseGbk(std::string content)
 	{
-		string strGBK = content;
+		std::string strGBK = content;
 
 		int len = MultiByteToWideChar(CP_ACP, 0, strGBK.c_str(), -1, NULL, 0);
 		unsigned short* wszUtf8 = new unsigned short[len + 1];
@@ -253,7 +253,7 @@ public:
 		return content;
 	}
 
-	static string getGbkUserUtf8(string content)
+	static std::string getGbkUserUtf8(std::string content)
 	{
 		unsigned short* wszGBK;
 		char* szGBK;

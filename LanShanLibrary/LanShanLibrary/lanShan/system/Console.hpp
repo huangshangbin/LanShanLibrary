@@ -7,23 +7,23 @@
 
 #include <iostream>
 
-using namespace std;
+
 
 
 class Console
 {
 public:
-	static string readString()
+	static std::string readString()
 	{
-		string str;
-		cin >> str;
+		std::string str;
+		std::cin >> str;
 		return move(str);
 	}
 
-	static string readLine()
+	static std::string readLine()
 	{
-		string str;
-		getline(cin, str);
+		std::string str;
+		getline(std::cin, str);
 		return move(str);
 	}
 
@@ -32,23 +32,23 @@ public:
 	template<typename T, typename ... Args>
 	static void out(T data, Args ... dataList)
 	{
-		cout << data << " ";
+		std::cout << data << " ";
 		out(dataList...);
 	}
 
 	template<typename T>
 	static void out(T data)
 	{
-		cout << data << endl;
+		std::cout << data << std::endl;
 	}
 
 
 	template<class T>
-	static void out(deque<T>& dataList)
+	static void out(std::deque<T>& dataList)
 	{
 		for (int i = 0; i < dataList.size(); i++)
 		{
-			cout << dataList[i] << endl;
+			std::cout << dataList[i] << std::endl;
 		}
 	}
 

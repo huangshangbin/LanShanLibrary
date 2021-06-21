@@ -8,11 +8,11 @@
 class TextFile
 {
 private:
-	string m_filePath;
-	deque<string> m_dataList;
+	std::string m_filePath;
+	std::deque<std::string> m_dataList;
 
 public:
-	TextFile(string filePath)
+	TextFile(std::string filePath)
 	{
 		m_filePath = filePath;
 		initDataList();
@@ -20,22 +20,22 @@ public:
 	~TextFile() {}
 
 public:
-	void reWrite(deque<string>& dataList)
+	void reWrite(std::deque<std::string>& dataList)
 	{
 		DequeUtils::copy(m_dataList, dataList);
 	}
 
-	void exportDataList(deque<string>& dataList)
+	void exportDataList(std::deque<std::string>& dataList)
 	{
 		DequeUtils::copy(dataList, m_dataList);
 	}
 
-	void push(string str)
+	void push(std::string str)
 	{
 		m_dataList.push_back(str);
 	}
 
-	void set(int row, string data)
+	void set(int row, std::string data)
 	{
 		if (row >= m_dataList.size() || row < 0)
 		{
@@ -45,7 +45,7 @@ public:
 		m_dataList[row] = data;
 	}
 
-	string get(int row)
+	std::string get(int row)
 	{
 		if (row >= m_dataList.size() || row < 0)
 		{
@@ -79,7 +79,7 @@ public:
 
 	void save()
 	{
-		string data;
+		std::string data;
 		if (m_dataList.size() > 0)
 		{
 			data = m_dataList[0];
@@ -101,7 +101,7 @@ public:
 private:
 	void initDataList()
 	{
-		ifstream inFileStream(m_filePath, std::ios::binary);
+		std::ifstream inFileStream(m_filePath, std::ios::binary);
 
 		inFileStream.seekg(0, std::ios::end);
 		int fileLength = inFileStream.tellg();
@@ -117,7 +117,7 @@ private:
 
 		fileBuffer[fileLength] = '\0';
 
-		string data(fileBuffer);
+		std::string data(fileBuffer);
 		if (fileLength > 0)
 		{
 			m_dataList = StringUtils::splitString(data, "\r\n");
@@ -133,7 +133,7 @@ public:
 	{
 		for (auto& data : m_dataList)
 		{
-			cout << data << endl;
+			std::cout << data << std::endl;
 		}
 	}
 };
